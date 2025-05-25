@@ -25,9 +25,12 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions = {
-    origin: 'https://my-job-site-x1or.vercel.app/',
+    origin: 'https://my-job-site-x1or.vercel.app',
     credentials: true
 }
+// app.use(cors(corsOptions));
+
+const cors = require('cors');
 app.use(cors(corsOptions));
 
 //Routes
