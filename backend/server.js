@@ -42,6 +42,13 @@ app.use("/api/v1/application",applicationRoute);
 //     res.sendFile(path.resolve(_dirname,"frontend","dist","index.html"));
 //  })
 
+//test
+app.get('/', (req, res) => {
+  res.send({
+    activeStatus: true,
+    error: false
+  });
+});
 
 const PORT = process.env.PORT ||5000;
 app.listen(PORT,()=>{
