@@ -40,23 +40,6 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 
-// const allowedOrigins = ['https://my-job-site-x1or.vercel.app'];
-
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     if (!origin || allowedOrigins.includes(origin)) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not allowed by CORS'));
-//     }
-//   },
-//   credentials: true,
-// };
-
-
-// const cors = require('cors');
-// app.use(cors(corsOptions));
-
 //Routes
 app.use("/api/v1/user",userRoute);
 app.use("/api/v1/company",companyRoute);
