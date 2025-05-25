@@ -1,4 +1,3 @@
-
 import express from "express";
 import cookieParser from "cookie-parser"; 
 import cors from "cors";
@@ -33,8 +32,10 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 const corsOptions = {
-    origin: ['http://localhost:5173','https://my-job-site-x1or.vercel.app'],
-    credentials: true
+    origin: ['http://localhost:5173', 'https://my-job-site.vercel.app'],
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }
 app.use(cors(corsOptions));
 
