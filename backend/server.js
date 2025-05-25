@@ -29,24 +29,32 @@ app.use(bodyParser.json())
 //     // credentials: true
 // }
 // app.use(cors(corsOptions));
-
-
-const allowedOrigins = ['https://my-job-site-x1or.vercel.app'];
-
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+app.use(cookieParser());
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-};
-
-
-const cors = require('cors');
+    origin: ['http://localhost:5173','https://my-job-site-x1or.vercel.app'],
+    credentials: true
+}
 app.use(cors(corsOptions));
+
+
+// const allowedOrigins = ['https://my-job-site-x1or.vercel.app'];
+
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (!origin || allowedOrigins.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true,
+// };
+
+
+// const cors = require('cors');
+// app.use(cors(corsOptions));
 
 //Routes
 app.use("/api/v1/user",userRoute);
